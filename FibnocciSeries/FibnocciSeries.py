@@ -6,9 +6,11 @@ Date:    26-Nov-2021
 Purpose: This script will generate Finocci series using 3 approaches
          1) Using normal For loop
          2) Using Recursive function call
-         3) Using Dynamic Programming
+         3) Using Dynamic Programming – Memoization
 """
-
+###############################################################################
+#For loop - Time Complexity: O(n)
+###############################################################################
 def getFibnocciSize_1(n):
     
     if n <= 0:
@@ -43,6 +45,10 @@ def generateFibnocci_1(n):
             b = c
     return series
 
+###############################################################################
+#Recursive function - Time Complexity:
+#T(n) = T(n-1) + T(n-2) + 1 = 2n = O(2^n)
+###############################################################################
 def getFibnocciSize_2(n):
     
     if n <= 0:
@@ -62,13 +68,41 @@ def generateFibnocci_2(n,series=[0,1]):
         yield series
     else:
         yield from generateFibnocci_2(n-1,series+[series[-1]+series[-2]])
+        
+###############################################################################
+#Dynamic Programming – Memoization - Time Complexity: O(n)
+###############################################################################
+def getFibnocciSize_3(n):
+    
+    if n <= 0:
+        return  0
+    
+    series = [0,1]
+    
+    for i in range(2,n+1):
+        series.append(series[i-1] + series[i-2])
+    return series[-1]
 
+def generateFibnocci_3(n):
+    
+    if n <= 0:
+        return  0
+    
+    series = [0,1]
+    
+    for i in range(2,n+1):
+        series.append(series[i-1] + series[i-2])
+    return series
+###############################################################################
 if __name__ == "__main__":
     
-    for i in [-1,0,1,2,3,4,5,6]:
+    for i in range(-1,8):
         print(getFibnocciSize_1(i))
         print(generateFibnocci_1(i))
 
         print(getFibnocciSize_2(i))
         print(list(generateFibnocci_2(i)))
+
+        print(getFibnocciSize_3(i))
+        print(generateFibnocci_3(i))
         print("-------------------------------------")
