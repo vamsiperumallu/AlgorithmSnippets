@@ -8,11 +8,11 @@ import sys
 
 
 """
-Given an array of strings products and a string searchWord. We want to design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with the searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
+Given an array of strings products and a string searchWord. We want to design a system that suggests at most three product names from 
+products after each character of searchWord is typed. Suggested products should have common prefix with the searchWord. 
+If there are more than three products with a common prefix return the three lexicographically minimums products.
 
 Return list of lists of the suggested products after each character of searchWord is typed. 
-
- 
 
 Example 1:
 
@@ -22,8 +22,7 @@ Output: [
 ["mobile","moneypot","monitor"],
 ["mouse","mousepad"],
 ["mouse","mousepad"],
-["mouse","mousepad"]
-]
+["mouse","mousepad"]]
 Explanation: products sorted lexicographically = ["mobile","moneypot","monitor","mouse","mousepad"]
 After typing m and mo all products match and we show user ["mobile","moneypot","monitor"]
 After typing mou, mous and mouse the system suggests ["mouse","mousepad"]
@@ -68,8 +67,7 @@ def searchSuggestions(repository, customerQuery):
     # Write your code here
     repository = list(map(lambda d: d.lower(),repository))
     repository.sort()
-    print(repository)
-    print(customerQuery)        
+     
     returnResult  = []
     
     start = bsStart = 0
@@ -87,13 +85,9 @@ def searchSuggestions(repository, customerQuery):
         
         start = lowerBound(repository, bsStart, prefix)
         
-        print(prefix,start, returnResult)
-        
         localList = []
         for i in range(start,min(start+3,n)):
             
-            print(len(repository[i]), len(prefix))
-            print(repository[i][0:len(prefix)].lower(), prefix.lower())
             if(len(repository[i]) < len(prefix) or 
                (not repository[i][0:len(prefix)].lower()==prefix.lower())):
                break
@@ -107,21 +101,15 @@ def searchSuggestions(repository, customerQuery):
     
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    
+    repository = ["mobile","mouse","moneypot","monitor","mousepad"]
+    customerQuery = "mouse"
 
-    repository_count = int(input().strip())
+    print("Input Words:", repository)
+    print("Search Word:", customerQuery)
 
-    repository = []
+    result = searchSuggestions(repository,customerQuery)
 
-    for _ in range(repository_count):
-        repository_item = input()
-        repository.append(repository_item)
-
-    customerQuery = input()
-
-    result = searchSuggestions(repository, customerQuery)
-
-    fptr.write('\n'.join([' '.join(x) for x in result]))
-    fptr.write('\n')
-
-    fptr.close()
+    print("Output:")
+    for strList in result:
+        print(strList)
