@@ -1,12 +1,10 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
+Author:  Vamsi Yalamanchili
+Date:    17-Dec-2021
+Purpose: This script will do the following:
+
 Given an array of strings products and a string searchWord. We want to design a system that suggests at most three product names from 
 products after each character of searchWord is typed. Suggested products should have common prefix with the searchWord. 
 If there are more than three products with a common prefix return the three lexicographically minimums products.
@@ -48,6 +46,11 @@ All characters of products[i] are lower-case English letters.
 1 <= searchWord.length <= 1000
 All characters of searchWord are lower-case English letters.
 """
+import math
+import os
+import random
+import re
+import sys
 
 def lowerBound(repository, start, prefix):
     i = start
