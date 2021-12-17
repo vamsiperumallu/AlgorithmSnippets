@@ -7,7 +7,7 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        ".",
+        "./RunLength Enconding",
         "-p",
         "test_*.py"
     ]
