@@ -21,11 +21,18 @@ Example3:
  Input: text1 = "pwwkew"
  Output: 3  (wke)
 """
-def lengthOfLongestSubstring(input):
-      if(len(input) == 0):
-            return 0
-      return 0
-        
+def lengthOfLongestSubstring(s):
+      maxlen = 0
+      str1 = "" 
+
+      for c in s:
+            if(c in str1):
+                  maxlen = max(maxlen,len(str1))
+                  str1 = str1[str1.find(c)+1:] + c
+            else:
+                  str1 += c
+      return max(maxlen,len(str1))      
+                  
 if __name__ == "__main__":
     
     print("#####################################################################")
@@ -45,5 +52,11 @@ if __name__ == "__main__":
     print("input:",input)
     print("Longest Substring:", lengthOfLongestSubstring(input))
 
-    print("#####################################################################")   
+    print("#####################################################################")
+
+    input = "qwertyabcdaef"
+    print("input:",input)
+    print("Longest Substring:", lengthOfLongestSubstring(input))
+
+    print("#####################################################################")  
 ###############################################################################
