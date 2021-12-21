@@ -2,12 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Author:  Vamsi Yalamanchili
-Date:    27-Nov-2021
-Purpose: This script will get the Longest Substring using 2 approaches
-         1) Using Recursive function call
-         2) Using Dynamic Programming
-
-Problem: Given a string text1, return the length of their longest substring.
+Date:    21-Dec-2021
+Purpose: Given a string text1, return the length of their longest substring.
 
 Example1: 
  Input: text1 = "abcabcbb"
@@ -39,24 +35,24 @@ if __name__ == "__main__":
 
     input = "abcabcbb" 
     print("input:",input)
-    print("Longest Substring:", lengthOfLongestSubstring(input))
+    print("Longest Substring Length:", lengthOfLongestSubstring(input))
     
     print("#####################################################################")
     input = "bbbbb"
     print("input:",input)
-    print("Longest Substring:", lengthOfLongestSubstring(input))
+    print("Longest Substring Length:", lengthOfLongestSubstring(input))
 
     print("#####################################################################")
     
     input = "pwwkew"
     print("input:",input)
-    print("Longest Substring:", lengthOfLongestSubstring(input))
+    print("Longest Substring Length:", lengthOfLongestSubstring(input))
 
     print("#####################################################################")
 
     input = "qwertyabcdaef"
     print("input:",input)
-    print("Longest Substring:", lengthOfLongestSubstring(input))
+    print("Longest Substring Length:", lengthOfLongestSubstring(input))
 
     print("#####################################################################")  
 ###############################################################################
