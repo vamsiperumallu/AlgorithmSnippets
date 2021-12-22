@@ -23,12 +23,9 @@ def getFirstNonRepeatingChar(s):
       uniqueStr1 = ''
       for c in s:
             if(c not in s[:i-1] and c not in s[i+1:]):
-                  uniqueStr1 += c
+                  return c
             i += 1
-      if len(uniqueStr1)>0:
-            return uniqueStr1[0]
-      else:
-            return None
+      return None
                   
 if __name__ == "__main__":
     
