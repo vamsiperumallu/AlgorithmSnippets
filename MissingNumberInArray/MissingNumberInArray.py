@@ -14,9 +14,12 @@ Example2:
  Input: [1,8,6,5,4,3,7,9]
  Output: 2
 
-Example2: 
+Example3: 
  Input: [1,8,6,5,4,3,7,2]
  Output: 9
+###############################################################################
+Time Complexity:  O(n)
+Space Complexity: O(1) 
 """
 def findMissingNumber(inp1):
 
